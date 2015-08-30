@@ -66,6 +66,8 @@ public class InteractRunner{
 				exit = reader.next();
 			}
 			
+		} catch (Exception e){
+			System.out.println(e);
 		} finally {
 			reader.close();
 		}
