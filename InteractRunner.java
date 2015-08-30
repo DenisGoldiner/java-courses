@@ -1,7 +1,10 @@
 import java.util.Scanner;
 
+//класс предназначен для проведения простых 
+//арифметических операций над числами
 public class InteractRunner{
 	
+	//главная точка входа в программу
 	public static void main (String[] args){
 		Scanner reader = new Scanner(System.in);
 		
@@ -9,15 +12,18 @@ public class InteractRunner{
 			Calculator calc = new Calculator();
 			String exit = "no";
 
+			//до тех пор, пока пользователь не пожелал выйти
 			while(!exit.equals("yes")){
-				
 				String operationExist = "yes";
 				
+				//просим ввести значения для обработки
 				System.out.println("Enter first arg : ");
 				String first = reader.next();
 				System.out.println("Enter second arg : ");
 				String second = reader.next();
 				
+				//цикл для возможности повторно ввести название
+				//операции в случае ошибки при желании пользователя
 				while(operationExist.equals("yes")){
 					operationExist = "no";
 					
@@ -29,6 +35,9 @@ public class InteractRunner{
 				
 				String operation = reader.next();
 					
+					//обработчик, в случае успешного ввода названия
+					//операции произведет вычисления и запишет результат
+					//в случае неправильного ввода предложит сделать это повторно
 					switch(operation){
 						case "summ": 
 							calc.summ(Integer.valueOf(first), Integer.valueOf(second));
@@ -48,9 +57,11 @@ public class InteractRunner{
 					}
 				}
 				
+				//вывод полученных данных
 				System.out.println("\nResult = " + calc.getResult());
 				calc.cleanResult();							
 				
+				//предложение выйти или продолжить работу с нуля
 				System.out.println("\nExit yes/no ? \n");
 				exit = reader.next();
 			}
